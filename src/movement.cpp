@@ -59,7 +59,7 @@ void pipe_movement(){
         wall.reset();
     wall.h1=GetRandomValue(150,500);
     wall.h2=780-wall.h1-230;
-    } 
+    }  
 }
 
 /// drawings ///
