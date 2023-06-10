@@ -22,7 +22,7 @@ void mainMenu(){
         drawing();
         if(CheckCollisionPointRec(GetMousePosition(), fullscreenButton) && IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
             menuStateSelected++;
-        //DrawTexture(pill1,screenWidth/2,screenHeight/2,WHITE);
+        
     }
     else if(menuStateSelected == 2){
         DrawText( "Controls", 0, 0 ,20 ,BLACK );
