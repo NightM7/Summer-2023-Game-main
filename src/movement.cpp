@@ -119,16 +119,16 @@ void pipe_movement(){
 }
 
 void collision(){
-    bool game_over=false;
-    if(CheckCollisionCircleRec(hb.position,hb.radius,wall.getlower_pipe()) || CheckCollisionCircleRec(hb.position,hb.radius,wall.getupper_pipe())){
-        game_over=true;
-    }
-      if(CheckCollisionCircleRec(hb.position,hb.radius,wall2.getlower_pipe()) || CheckCollisionCircleRec(hb.position,hb.radius,wall2.getupper_pipe())){
-        game_over=true;
-    }
-    if(game_over){
-        fbf.position={1,1};
-    }
+    // bool game_over=false;
+    // if(CheckCollisionCircleRec(hb.position,hb.radius,wall.getlower_pipe()) || CheckCollisionCircleRec(hb.position,hb.radius,wall.getupper_pipe())){
+    //     game_over=true;
+    // }
+    //   if(CheckCollisionCircleRec(hb.position,hb.radius,wall2.getlower_pipe()) || CheckCollisionCircleRec(hb.position,hb.radius,wall2.getupper_pipe())){
+    //     game_over=true;
+    // }
+    // if(game_over){
+    //     fbf.position={1,1};
+    // }
 }
 
                                                     ////////////////
