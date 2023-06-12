@@ -18,7 +18,10 @@ void mainMenu(){
     }
     else if(menuStateSelected == 1){
         birdJump();
+        update_hb();
+        collision();
         pipe_movement();
+        collision();
         drawing();
         if(CheckCollisionPointRec(GetMousePosition(), fullscreenButton) && IsMouseButtonReleased(MOUSE_LEFT_BUTTON))
             menuStateSelected++;
