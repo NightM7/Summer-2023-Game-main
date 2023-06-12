@@ -42,18 +42,20 @@ void birdJump(){
 
 struct pipe{
     float x_pos =GetRenderWidth();
-    const float speed =3;
+    const float speed =5;
     int h1=GetRandomValue(150,500);
     int h2=780-h1-230;
+
     void reset(){
         x_pos=GetRenderWidth();
     }
+    
     void move(){
         x_pos-=speed;
     }
 };
 pipe wall;
-
+pipe wall2;
 void pipe_movement(){
     wall.move();
     if(wall.x_pos<=-100){
@@ -62,6 +64,7 @@ void pipe_movement(){
     wall.h2=780-wall.h1-230;
     }   
 }
+
 
 /// drawings ///
 
@@ -73,6 +76,7 @@ void drawing(){
     DrawRectangle(wall.x_pos,1,100,wall.h2,BLACK);
     if(IsKeyPressed(KEY_SPACE)||(a>=1 && a<=28))
         DrawTexture(fb_flap, GetRenderWidth() / 4 - 104, fbf.position, WHITE);
-    //  Texture2D pill1 =LoadTexture("./resources/pillar-2.1.png");
-    //  DrawTexture(pill1,GetScreenWidth()/2,GetScreenHeight()/2,WHITE);
+    //   Texture2D pill1 =LoadTexture("./resources/pillar-2.1.png");
+    //   DrawTexture(pill1,1,1,WHITE);
+
 }
