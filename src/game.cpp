@@ -15,7 +15,8 @@ int main(void)
 
     //initialling the window
     InitWindow(screenWidth,screenHeight, "Flappy Bird");
-    SetTargetFPS(144); 
+    //SetTargetFPS(144); 
+    SetConfigFlags(FLAG_VSYNC_HINT);
     SetWindowIcon(logo);
     SetWindowMinSize(screenWidth,screenHeight);
     //game loop

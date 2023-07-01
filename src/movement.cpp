@@ -63,8 +63,6 @@ struct pipe{
     Vector2 size_bottom ={100,h1};
     Vector2 size_up ={100,h2};
     
-    Rectangle lower_pipe {pos_bottom.x,pos_bottom.y,size_bottom.x,size_bottom.y};
-    Rectangle upper_pipe {pos_up.x,pos_up.y,size_up.x,size_up.y};
 
     void reset(){
         x_pos=GetRenderWidth();
@@ -83,18 +81,16 @@ struct pipe{
         x_pos-=speed;
     }
 
-    void create() {
-        Rectangle upper_pipe {pos_up.x,pos_up.y,size_up.x,size_up.y};
-        Rectangle lower_pipe {pos_bottom.x,pos_bottom.y,size_bottom.x,size_bottom.y};
-        DrawRectangleRec(lower_pipe, BLACK);
-        DrawRectangleRec(upper_pipe, BLACK);
+    void create() {        
+        DrawRectangleRec(getlower_pipe(), BLACK);
+        DrawRectangleRec(getupper_pipe(), BLACK);
     }
 
     Rectangle getlower_pipe(){
-        return lower_pipe;
+        return Rectangle {pos_bottom.x,pos_bottom.y,size_bottom.x,size_bottom.y};
     }
     Rectangle getupper_pipe(){
-        return upper_pipe;
+        return Rectangle {pos_up.x,pos_up.y,size_up.x,size_up.y};
     }
     void movement(){
         update();
@@ -119,31 +115,38 @@ void pipe_movement(){
 }
 
 void collision(){
-    // bool game_over=false;
-    // if(CheckCollisionCircleRec(hb.position,hb.radius,wall.getlower_pipe()) || CheckCollisionCircleRec(hb.position,hb.radius,wall.getupper_pipe())){
-    //     game_over=true;
-    // }
-    //   if(CheckCollisionCircleRec(hb.position,hb.radius,wall2.getlower_pipe()) || CheckCollisionCircleRec(hb.position,hb.radius,wall2.getupper_pipe())){
-    //     game_over=true;
-    // }
-    // if(game_over){
-    //     fbf.position={1,1};
-    // }
+    bool game_over=false;
+    if(CheckCollisionCircleRec(hb.position,hb.radius,wall.getlower_pipe()) || CheckCollisionCircleRec(hb.position,hb.radius,wall.getupper_pipe())){
+        game_over=true;
+    }
+      if(CheckCollisionCircleRec(hb.position,hb.radius,wall2.getlower_pipe()) || CheckCollisionCircleRec(hb.position,hb.radius,wall2.getupper_pipe())){
+        game_over=true;
+    }
+    if(game_over){
+       ///////////////////////
+       //////game over///////
+       /////////////////////
+    }
 }
+
 
                                                     ////////////////
                                                     /// drawings ///
                                                     ////////////////
 
+Texture2D returntxt(Texture2D pill1){
+    return pill1;
+}
 void drawing(){
     Texture2D fb_flap=LoadTexture("./resources//flappy-bird-flaps.png");
     Texture2D fb = LoadTexture("./resources/flappy-bird.png");// fb = flappy bird
-
+    //Texture2D pill1 =LoadTexture("./resources/pillar-2.1.png");
     DrawTextureEx(fb,fbf.position,1.0,0.75, WHITE);
     DrawCircleV(hb.position,hb.radius,PINK);
-    if(IsKeyPressed(KEY_SPACE)||(a>=1 && a<=28))
+    if(IsKeyPressed(KEY_SPACE)||(a>=1 && a<=28)){
         DrawTextureEx(fb_flap,fbf.position,1.0,0.75, WHITE);
-
+    }
+    //DrawTextureV(pill1,wall2.pos_up,WHITE);
 }
 
 //   Texture2D pill1 =LoadTexture("./resources/pillar-2.1.png");
